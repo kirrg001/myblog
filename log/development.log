@@ -1,0 +1,1585 @@
+
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-10-30 16:28:48) [GET]
+
+ActionController::RoutingError (No route matches "/helloworld" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (25.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (33.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [4;35;1mSQL (38.9ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20111030153019)
+  [4;35;1mSQL (26.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (32.1ms)[0m   [0;1mCREATE TABLE "posts" ("id" serial primary key, "title" character varying(255), "body" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (27.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20111030153019')[0m
+  [4;36;1mSQL (27.5ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (26.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (28.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing Rails::InfoController#properties (for 127.0.0.1 at 2011-10-30 16:32:08) [GET]
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Completed in 146ms (View: 2, DB: 83) | 200 OK [http://localhost/rails/info/properties]
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:32:27) [GET]
+  [4;35;1mPost Load (28.1ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 532ms (View: 500, DB: 81) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 16:54:16) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 40ms (View: 7, DB: 54) | 200 OK [http://localhost/posts/new]
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (28.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 16:54:26) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"test", "title"=>"test"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mSQL (26.8ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (39.8ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at") VALUES('2011-10-30 15:54:26.829812', E'test', E'test', '2011-10-30 15:54:26.829812') RETURNING "id"[0m
+  [4;36;1mSQL (30.4ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 167ms (DB: 153) | 302 Found [http://localhost/posts]
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 16:54:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 69ms (View: 7, DB: 82) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 16:54:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (30.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 72ms (View: 8, DB: 84) | 200 OK [http://localhost/posts/1/edit]
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#update (for 127.0.0.1 at 2011-10-30 16:54:41) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"body"=>"test1", "title"=>"test1"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw=", "id"=>"1"}
+  [4;35;1mPost Load (27.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (26.5ms)[0m   [0mUPDATE "posts" SET "updated_at" = '2011-10-30 15:54:41.093133', "title" = E'test1', "body" = E'test1' WHERE "id" = 1[0m
+  [4;36;1mSQL (31.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 151ms (DB: 167) | 302 Found [http://localhost/posts/1]
+  [4;35;1mSQL (31.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (29.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 16:54:41) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (26.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 64ms (View: 3, DB: 88) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (28.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 16:56:52) [GET]
+  Parameters: {"id"=>"1"}
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected '\n', expecting '='):
+  app/controllers/posts_controller.rb:16:in `show'
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (70.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:56:55) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected '\n', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (66.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (25.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:11) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title;
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ';', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (30.6ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:12) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title;
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ';', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (65.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:12) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title;
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ';', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (29.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:13) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title;
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ';', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (64.1ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:14) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+	validates_presence_of: body, title;
+	                      ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ';', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (29.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:57:29) [GET]
+
+NameError (undefined local variable or method `title' for #<Class:0x1011c2da0>):
+  app/models/post.rb:2
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (31.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (28.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 16:58:39) [GET]
+
+NameError (undefined local variable or method `title' for #<Class:0x1011c2e40>):
+  app/models/post.rb:2
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (30.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (34.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:00:50) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected ':', expecting kEND
+  validates_presence_of: body,titel
+                        ^
+/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/models/post.rb:2: syntax error, unexpected '\n', expecting '='):
+  app/controllers/posts_controller.rb:5:in `index'
+
+Rendered rescues/_trace (29.7ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:01:39) [GET]
+  [4;36;1mPost Load (28.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 142ms (View: 110, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:01:51) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (28.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 69ms (View: 7, DB: 82) | 200 OK [http://localhost/posts/1/edit]
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#update (for 127.0.0.1 at 2011-10-30 17:01:55) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"body"=>"test1", "title"=>""}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw=", "id"=>"1"}
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (26.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (26.3ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 122ms (View: 5, DB: 135) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:02:26) [GET]
+  [4;35;1mPost Load (28.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 68ms (View: 37, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (27.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:08:40) [GET]
+  [4;36;1mPost Load (30.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 138ms (View: 105, DB: 85) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:08:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #1 of app/views/posts/show.html.erb:
+1: <% div_for @posts do %>
+2: 	<h2><%= link_to_unless_current h(@posts.title), @post %></h2>
+3: 	<% simple_format h(@posts.body) %>
+4: <% end %>
+
+    app/views/posts/show.html.erb:1
+    app/controllers/posts_controller.rb:18:in `show'
+
+Rendered rescues/_trace (75.4ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (28.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:10:00) [GET]
+  [4;36;1mPost Load (27.9ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 135ms (View: 104, DB: 83) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (26.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:10:02) [GET]
+  [4;35;1mPost Load (27.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 62ms (View: 33, DB: 81) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (27.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:10:06) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 71ms (View: 8, DB: 82) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (29.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:10:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 150ms (View: 74, DB: 84) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:13:54) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Completed in 136ms (View: 74, DB: 81) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:13:59) [GET]
+  [4;35;1mPost Load (27.6ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Completed in 66ms (View: 35, DB: 81) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (25.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:29:13) [GET]
+  [4;36;1mPost Load (29.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (64.0ms)
+Completed in 139ms (View: 106, DB: 82) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:29:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.7ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.0ms)
+Completed in 127ms (View: 64, DB: 82) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (26.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:29:24) [GET]
+  [4;36;1mPost Load (27.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.2ms)
+Completed in 65ms (View: 34, DB: 80) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 17:29:25) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 74ms (View: 41, DB: 53) | 200 OK [http://localhost/posts/new]
+  [4;35;1mSQL (26.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 17:29:32) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"test riohriow hriow hfiofh iof hiofw", "title"=>"test2"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mSQL (26.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (25.8ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 92ms (View: 5, DB: 105) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 17:29:35) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"test riohriow hriow hfiofh iof hiofw", "title"=>"test2"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mSQL (26.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (26.3ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 96ms (View: 8, DB: 106) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 17:29:40) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"gdgddg", "title"=>"test2"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mSQL (27.3ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (27.1ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 95ms (View: 5, DB: 108) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:29:53) [GET]
+  [4;35;1mPost Load (28.2ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (31.7ms)
+Completed in 64ms (View: 33, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:29:55) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.9ms)
+Completed in 69ms (View: 7, DB: 81) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (29.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:29:56) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 72ms (View: 10, DB: 83) | 200 OK [http://localhost/posts/1/edit]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#update (for 127.0.0.1 at 2011-10-30 17:29:59) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"body"=>"test1", "title"=>"test15545545454"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw=", "id"=>"1"}
+  [4;36;1mPost Load (27.4ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (26.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (25.8ms)[0m   [0;1mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 156ms (View: 7, DB: 132) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (28.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to xml (for 127.0.0.1 at 2011-10-30 17:32:11) [GET]
+  [4;36;1mPost Load (28.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Completed in 368ms (View: 336, DB: 83) | 200 OK [http://localhost/posts.xml]
+  [4;35;1mSQL (968.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:32:55) [GET]
+  [4;35;1mPost Load (27.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (2999.1ms)
+Completed in 3039ms (View: 3009, DB: 1025) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (27.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (30.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:33:02) [GET]
+  [4;36;1mPost Load (951.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (31.9ms)
+Completed in 987ms (View: 33, DB: 1009) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (1008.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:33:04) [GET]
+  [4;35;1mPost Load (27.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (31.9ms)
+Completed in 63ms (View: 33, DB: 1064) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (29.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (33.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 17:33:10) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 74ms (View: 40, DB: 62) | 200 OK [http://localhost/posts/new]
+  [4;36;1mSQL (28.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 17:33:16) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"jztjtzjtzjtjtzjtzjtzjtzjtzjtz", "title"=>"jztjtzjtzjtzjtzjtz"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mSQL (27.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.6ms)[0m   [0mROLLBACK[0m
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 1077ms (View: 4, DB: 111) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (1001.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1000.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:33:54) [GET]
+  [4;36;1mPost Load (30.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (68.8ms)
+Completed in 146ms (View: 112, DB: 2032) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (28.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (34.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:34:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (941.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.3ms)
+Completed in 986ms (View: 10, DB: 1004) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (29.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (947.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:34:04) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/edit
+Completed in 68ms (View: 6, DB: 1005) | 200 OK [http://localhost/posts/1/edit]
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#update (for 127.0.0.1 at 2011-10-30 17:34:08) [PUT]
+  Parameters: {"commit"=>"Update", "post"=>{"body"=>"test1", "title"=>"test12"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw=", "id"=>"1"}
+  [4;35;1mPost Load (29.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (31.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPost Update (944.2ms)[0m   [0mUPDATE "posts" SET "updated_at" = '2011-10-30 16:34:08.946050', "title" = E'test12' WHERE "id" = 1[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 1112ms (DB: 1093) | 302 Found [http://localhost/posts/1]
+  [4;35;1mSQL (29.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:34:12) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (29.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.1ms)
+Completed in 1011ms (View: 4, DB: 87) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to json (for 127.0.0.1 at 2011-10-30 17:35:29) [GET]
+  [4;36;1mPost Load (27.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Completed in 278ms (View: 247, DB: 81) | 200 OK [http://localhost/posts.json]
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to jsonclear (for 127.0.0.1 at 2011-10-30 17:42:41) [GET]
+  [4;35;1mPost Load (27.7ms)[0m   [0mSELECT * FROM "posts" [0m
+Completed in 35ms (View: 4, DB: 82) | 406 Not Acceptable [http://localhost/posts.jsonclear]
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-10-30 17:42:51) [GET]
+  [4;36;1mPost Load (28.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+
+ActionView::TemplateError (undefined local variable or method `auhtor' for #<ActionView::Base:0x107339458>) on line #9 of app/views/posts/index.atom.builder:
+6: 		feed.entry(post) do |entry|
+7: 			entry.title(post.title)
+8: 			entry.content(post.body, :type => 'html')
+9: 			entry.author { |author| auhtor.name("Katharina Irrgang")}
+10: 		end
+11: 	end
+12: end
+
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:6:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:5:in `each'
+    app/views/posts/index.atom.builder:5:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:1:in `_run_builder_app47views47posts47index46atom46builder'
+    app/controllers/posts_controller.rb:11:in `index'
+    app/controllers/posts_controller.rb:7:in `index'
+
+Rendered rescues/_trace (41.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:44:22) [GET]
+  [4;35;1mPost Load (27.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.5ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at /Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/views/layouts/posts.html.erb:9)
+Completed in 69ms (View: 38, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:44:25) [GET]
+  [4;36;1mPost Load (28.7ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.2ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at /Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/views/layouts/posts.html.erb:9)
+Completed in 67ms (View: 36, DB: 82) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (26.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:44:42) [GET]
+  [4;36;1mPost Load (27.6ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (60.3ms)
+DEPRECATION WARNING: formatted_posts_path() has been deprecated. Please pass format to the standard posts_path method instead.. (called from _run_erb_app47views47layouts47posts46html46erb at /Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/views/layouts/posts.html.erb:9)
+Completed in 138ms (View: 107, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:45:37) [GET]
+  [4;35;1mPost Load (27.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.4ms)
+Completed in 71ms (View: 39, DB: 82) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:45:46) [GET]
+  [4;36;1mPost Load (27.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.3ms)
+Completed in 67ms (View: 36, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (27.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:45:49) [GET]
+  [4;35;1mPost Load (30.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.8ms)
+Completed in 68ms (View: 35, DB: 85) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (27.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:46:43) [GET]
+  [4;36;1mPost Load (27.3ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.4ms)
+Completed in 81ms (View: 50, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-10-30 17:46:46) [GET]
+  [4;35;1mPost Load (27.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+
+ActionView::TemplateError (undefined local variable or method `auhtor' for #<ActionView::Base:0x1063f1a40>) on line #9 of app/views/posts/index.atom.builder:
+6: 		feed.entry(post) do |entry|
+7: 			entry.title(post.title)
+8: 			entry.content(post.body, :type => 'html')
+9: 			entry.author { |author| auhtor.name("Katharina Irrgang")}
+10: 		end
+11: 	end
+12: end
+
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:6:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:5:in `each'
+    app/views/posts/index.atom.builder:5:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:1:in `_run_builder_app47views47posts47index46atom46builder'
+    app/controllers/posts_controller.rb:11:in `index'
+    app/controllers/posts_controller.rb:7:in `index'
+
+Rendered rescues/_trace (81.2ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:47:19) [GET]
+  [4;36;1mPost Load (27.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.0ms)
+Completed in 65ms (View: 34, DB: 81) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (28.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-10-30 17:48:22) [GET]
+  [4;35;1mPost Load (26.9ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering posts/index
+
+ActionView::TemplateError (undefined local variable or method `auhtor' for #<ActionView::Base:0x10622ad38>) on line #9 of app/views/posts/index.atom.builder:
+6: 		feed.entry(post) do |entry|
+7: 			entry.title(post.title)
+8: 			entry.content(post.body, :type => 'html')
+9: 			entry.author { |author| auhtor.name("Katharina Irrgang")}
+10: 		end
+11: 	end
+12: end
+
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:9:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:6:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:5:in `each'
+    app/views/posts/index.atom.builder:5:in `_run_builder_app47views47posts47index46atom46builder'
+    app/views/posts/index.atom.builder:1:in `_run_builder_app47views47posts47index46atom46builder'
+    app/controllers/posts_controller.rb:11:in `index'
+    app/controllers/posts_controller.rb:7:in `index'
+
+Rendered rescues/_trace (76.6ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index to atom (for 127.0.0.1 at 2011-10-30 17:49:00) [GET]
+  [4;36;1mPost Load (27.1ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering posts/index
+Completed in 69ms (View: 39, DB: 80) | 200 OK [http://localhost/posts.atom]
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:49:13) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.4ms)
+Completed in 109ms (View: 48, DB: 81) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:49:21) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.6ms)
+Completed in 67ms (View: 6, DB: 83) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-10-30 17:53:32) [GET]
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/controllers/posts_controller.rb:97: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (23.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:53:57) [GET]
+  [4;35;1mPost Load (28.3ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.9ms)
+Completed in 66ms (View: 35, DB: 82) | 200 OK [http://localhost/posts/]
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (29.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 17:54:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.0ms)
+Completed in 68ms (View: 7, DB: 84) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (27.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:54:01) [GET]
+  Parameters: {"id"=>"1"}
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 1ms (View: 0, DB: 54) | 401 Unauthorized [http://localhost/posts/1/edit]
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:54:05) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (undefined local variable or method `name' for #<PostsController:0x106111410>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (27.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (30.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#edit (for 127.0.0.1 at 2011-10-30 17:54:50) [GET]
+  Parameters: {"id"=>"1"}
+
+NameError (undefined local variable or method `name' for #<PostsController:0x1062e61f0>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (27.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:56:12) [GET]
+  [4;35;1mPost Load (29.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.0ms)
+Completed in 67ms (View: 35, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 17:56:14) [GET]
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 1ms (View: 0, DB: 53) | 401 Unauthorized [http://localhost/posts/new]
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 17:56:14) [GET]
+
+NameError (undefined local variable or method `name' for #<PostsController:0x1064216c8>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (27.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (28.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 17:57:24) [GET]
+
+NameError (undefined local variable or method `name' for #<PostsController:0x1061ef6c0>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (60.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:57:27) [GET]
+Filter chain halted as [:authenticate] rendered_or_redirected.
+Completed in 1ms (View: 0, DB: 54) | 401 Unauthorized [http://localhost/posts]
+  [4;36;1mSQL (27.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:57:28) [GET]
+
+NameError (undefined local variable or method `name' for #<PostsController:0x106365db0>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (26.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:57:38) [GET]
+
+NameError (undefined local variable or method `name' for #<PostsController:0x106127fa8>):
+  app/controllers/posts_controller.rb:93:in `authenticate'
+  app/controllers/posts_controller.rb:93:in `authenticate'
+
+Rendered rescues/_trace (27.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (30.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 17:58:01) [GET]
+  [4;36;1mPost Load (28.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (35.2ms)
+Completed in 70ms (View: 38, DB: 86) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 18:00:15) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 42ms (View: 9, DB: 54) | 200 OK [http://localhost/posts/new]
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 18:00:18) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"jtzjz", "title"=>"jztjzt"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mSQL (25.8ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (28.2ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "title", "body", "updated_at") VALUES('2011-10-30 17:00:18.948432', E'jztjzt', E'jtzjz', '2011-10-30 17:00:18.948432') RETURNING "id"[0m
+  [4;35;1mSQL (28.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/posts/2
+Completed in 152ms (DB: 136) | 302 Found [http://localhost/posts]
+  [4;36;1mSQL (27.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:00:19) [GET]
+  Parameters: {"id"=>"2"}
+  [4;36;1mPost Load (26.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.2ms)
+Completed in 69ms (View: 7, DB: 82) | 200 OK [http://localhost/posts/2]
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:00:21) [GET]
+  [4;35;1mPost Load (27.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.1ms)
+Rendered posts/_post (1.0ms)
+Completed in 68ms (View: 37, DB: 83) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:01:59) [GET]
+  [4;36;1mPost Load (28.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.3ms)
+Rendered posts/_post (1.0ms)
+Completed in 69ms (View: 37, DB: 81) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:02:01) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mPost Load (27.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.0ms)
+Completed in 69ms (View: 7, DB: 81) | 200 OK [http://localhost/posts/2]
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#destroy (for 127.0.0.1 at 2011-10-30 18:02:06) [DELETE]
+  Parameters: {"authenticity_token"=>"aS/+92QJBnt0Y8ResECswaSAXjZtUPSSe4aJTfqkcVk=", "id"=>"2"}
+  [4;36;1mPost Load (27.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 2) [0m
+  [4;35;1mSQL (26.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mPost Destroy (28.0ms)[0m   [0;1mDELETE FROM "posts" WHERE "id" = 2[0m
+  [4;35;1mSQL (29.6ms)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/posts
+Completed in 147ms (DB: 164) | 302 Found [http://localhost/posts/2]
+  [4;36;1mSQL (26.8ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:02:06) [GET]
+  [4;36;1mPost Load (27.5ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (31.5ms)
+Completed in 64ms (View: 33, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+  [4;36;1mSQL (27.9ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePosts (20111030153019)
+Migrating to CreateComments (20111030170310)
+  [4;35;1mSQL (26.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (39.1ms)[0m   [0;1mCREATE TABLE "comments" ("id" serial primary key, "post_id" integer, "body" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;35;1mSQL (27.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20111030170310')[0m
+  [4;36;1mSQL (26.7ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:15:16) [GET]
+  [4;35;1mPost Load (28.4ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (33.4ms)
+Completed in 71ms (View: 39, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:15:19) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (26.3ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.5ms)
+  [4;35;1mComment Load (27.4ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 131ms (View: 42, DB: 108) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:16:28) [POST]
+  Parameters: {"comment"=>{"body"=>"heowhioewhcfeow fupw ufepw uep uewop"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mSQL (26.9ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.8ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:16:28.806023', E'heowhioewhcfeow fupw ufepw uep uewop', '2011-10-30 17:16:28.806023', NULL) RETURNING "id"[0m
+  [4;36;1mSQL (32.8ms)[0m   [0;1mCOMMIT[0m
+
+NoMethodError (undefined method `comment_url' for #<CommentsController:0x10640c368>):
+  app/controllers/comments_controller.rb:48:in `create'
+  app/controllers/comments_controller.rb:45:in `create'
+
+Rendered rescues/_trace (30.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (27.1ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (25.8ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:19:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (26.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.2ms)
+  [4;36;1mComment Load (27.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 159ms (View: 71, DB: 106) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#create (for 127.0.0.1 at 2011-10-30 18:19:30) [POST]
+  Parameters: {"comment"=>{"body"=>"heowhioewhcfeow fupw ufepw uep uewop"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+
+SyntaxError (/Users/katharinairrgang/Desktop/rubyOnRails/myblog/app/controllers/comments_controller.rb:6: syntax error, unexpected $end, expecting kEND):
+  
+
+Rendered rescues/_trace (23.8ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:20:08) [POST]
+  Parameters: {"comment"=>{"body"=>"heowhioewhcfeow fupw ufepw uep uewop"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (28.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 96ms (DB: 84) | 302 Found [http://localhost/posts/1/comments]
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:20:08) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.0ms)
+  [4;35;1mComment Load (26.8ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 130ms (View: 42, DB: 108) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.2ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.8ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:21:38) [POST]
+  Parameters: {"comment"=>{"body"=>"great at"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (28.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 134ms (DB: 83) | 302 Found [http://localhost/posts/1/comments]
+  [4;35;1mSQL (29.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (30.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:21:38) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.4ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.1ms)
+  [4;36;1mComment Load (26.8ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 133ms (View: 45, DB: 114) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (29.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:22:49) [POST]
+  Parameters: {"comment"=>{"body"=>"jkhjklkl"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (27.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Redirected to http://localhost:3000/posts/1
+Completed in 237ms (DB: 83) | 302 Found [http://localhost/posts/1/comments]
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:22:49) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (26.6ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.8ms)
+  [4;36;1mComment Load (27.1ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 142ms (View: 53, DB: 108) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.3ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:23:33) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.7ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (69.7ms)
+  [4;35;1mComment Load (26.3ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 219ms (View: 123, DB: 109) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:23:37) [POST]
+  Parameters: {"comment"=>{"body"=>"dwqdwq"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (28.2ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (29.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2011-10-30 18:25:47) [GET]
+  Parameters: {"post_id"=>"1"}
+Rendering template within layouts/comments
+Rendering comments/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #9 of app/views/comments/index.html.erb:
+6:     <th>Body</th>
+7:   </tr>
+8: 
+9: <% @comments.each do |comment| %>
+10:   <tr>
+11:     <td><%=h comment.post_id %></td>
+12:     <td><%=h comment.body %></td>
+
+    app/views/comments/index.html.erb:9
+
+Rendered rescues/_trace (32.6ms)
+Rendered rescues/_request_and_response (0.8ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (28.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#index (for 127.0.0.1 at 2011-10-30 18:25:50) [GET]
+  Parameters: {"post_id"=>"1"}
+Rendering template within layouts/comments
+Rendering comments/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #9 of app/views/comments/index.html.erb:
+6:     <th>Body</th>
+7:   </tr>
+8: 
+9: <% @comments.each do |comment| %>
+10:   <tr>
+11:     <td><%=h comment.post_id %></td>
+12:     <td><%=h comment.body %></td>
+
+    app/views/comments/index.html.erb:9
+
+Rendered rescues/_trace (32.4ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (28.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:25:55) [GET]
+  [4;36;1mPost Load (28.4ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (99.9ms)
+Completed in 150ms (View: 115, DB: 84) | 200 OK [http://localhost/posts/]
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:25:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.2ms)
+  [4;36;1mComment Load (31.8ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Completed in 133ms (View: 41, DB: 113) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (27.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.1ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:26:00) [POST]
+  Parameters: {"comment"=>{"body"=>"fewfew"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (28.2ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (28.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:26:00.291714', E'fewfew', '2011-10-30 17:26:00.291714', 1) RETURNING "id"[0m
+  [4;36;1mSQL (29.3ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 219ms (DB: 169) | 302 Found [http://localhost/posts/1/comments]
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (29.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:26:00) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (32.3ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.7ms)
+  [4;36;1mComment Load (27.9ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (253.7ms)
+Completed in 388ms (View: 293, DB: 116) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.3ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:26:33) [POST]
+  Parameters: {"comment"=>{"body"=>"guguo\r\n"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (27.5ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (29.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.5ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:26:33.937380', E'guguo
+', '2011-10-30 17:26:33.937380', 1) RETURNING "id"[0m
+  [4;36;1mSQL (30.1ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/1
+Completed in 214ms (DB: 169) | 302 Found [http://localhost/posts/1/comments]
+  [4;35;1mSQL (27.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.2ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:26:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (27.1ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.1ms)
+  [4;36;1mComment Load (27.0ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (1.7ms)
+Rendered comments/_comment (0.3ms)
+Completed in 129ms (View: 39, DB: 110) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (26.4ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:26:37) [GET]
+  [4;35;1mPost Load (27.8ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (32.3ms)
+Completed in 65ms (View: 34, DB: 81) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (30.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.6ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:33:09) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (33.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.1ms)
+  [4;35;1mComment Load (32.7ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (0.5ms)
+Rendered comments/_comment (0.3ms)
+Completed in 180ms (View: 80, DB: 124) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (33.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (31.4ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:33:13) [POST]
+  Parameters: {"comment"=>{"body"=>"fewfewfewfew"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (31.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (28.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (27.2ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:33:13.139477', E'fewfewfewfew', '2011-10-30 17:33:13.139477', 1) RETURNING "id"[0m
+  [4;35;1mSQL (30.2ms)[0m   [0mCOMMIT[0m
+Rendering comments/create
+
+ActionView::TemplateError (undefined method `page_insert_html' for #<ActionView::Base:0x105c44798>) on line #1 of app/views/comments/create.js.rjs:
+1: page_insert_html :bottom, :comments, :partial => @comment
+2: page[@comment].visual_effect :highlight
+3: #reset the form
+4: page[:new_comment].reset
+
+    app/views/comments/create.js.rjs:1:in `_run_rjs_app47views47comments47create46js46rjs'
+    app/views/comments/create.js.rjs:1:in `_run_rjs_app47views47comments47create46js46rjs'
+    app/controllers/comments_controller.rb:5:in `create'
+
+Rendered rescues/_trace (69.9ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (33.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (29.1ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:33:23) [POST]
+  Parameters: {"comment"=>{"body"=>"fewfewfewfew"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (40.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (26.6ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (31.7ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:33:24.376253', E'fewfewfewfew', '2011-10-30 17:33:24.376253', 1) RETURNING "id"[0m
+  [4;35;1mSQL (33.8ms)[0m   [0mCOMMIT[0m
+Rendering comments/create
+
+ActionView::TemplateError (undefined method `page_insert_html' for #<ActionView::Base:0x105c49b58>) on line #1 of app/views/comments/create.js.rjs:
+1: page_insert_html :bottom, :comments, :partial => @comment
+2: page[@comment].visual_effect :highlight
+3: #reset the form
+4: page[:new_comment].reset
+
+    app/views/comments/create.js.rjs:1:in `_run_rjs_app47views47comments47create46js46rjs'
+    app/views/comments/create.js.rjs:1:in `_run_rjs_app47views47comments47create46js46rjs'
+    app/controllers/comments_controller.rb:5:in `create'
+
+Rendered rescues/_trace (36.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:34:02) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (28.0ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.7ms)
+  [4;35;1mComment Load (26.7ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (1.6ms)
+Rendered comments/_comment (0.3ms)
+Rendered comments/_comment (0.3ms)
+Rendered comments/_comment (0.3ms)
+Completed in 132ms (View: 42, DB: 109) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (29.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (28.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:34:07) [POST]
+  Parameters: {"comment"=>{"body"=>"btgrtbrbr"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (27.8ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (26.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (27.5ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:34:07.428216', E'btgrtbrbr', '2011-10-30 17:34:07.428216', 1) RETURNING "id"[0m
+  [4;35;1mSQL (36.5ms)[0m   [0mCOMMIT[0m
+Rendering comments/create
+Rendered comments/_comment (1.7ms)
+Completed in 224ms (View: 5, DB: 175) | 200 OK [http://localhost/posts/1/comments]
+  [4;36;1mSQL (27.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (28.3ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:34:12) [POST]
+  Parameters: {"comment"=>{"body"=>"ervreverver"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mPost Load (28.1ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;35;1mSQL (29.4ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (30.7ms)[0m   [0;1mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:34:12.248841', E'ervreverver', '2011-10-30 17:34:12.248841', 1) RETURNING "id"[0m
+  [4;35;1mSQL (32.1ms)[0m   [0mCOMMIT[0m
+Rendering comments/create
+Rendered comments/_comment (1.5ms)
+Completed in 221ms (View: 3, DB: 176) | 200 OK [http://localhost/posts/1/comments]
+  [4;36;1mSQL (26.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:34:14) [GET]
+  [4;36;1mPost Load (34.0ms)[0m   [0;1mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (30.7ms)
+Completed in 70ms (View: 33, DB: 87) | 200 OK [http://localhost/posts]
+  [4;35;1mSQL (27.6ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:34:15) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPost Load (26.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.1ms)
+  [4;36;1mComment Load (28.3ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (3.2ms)
+Rendered comments/_comment (0.5ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Completed in 142ms (View: 51, DB: 111) | 200 OK [http://localhost/posts/1]
+  [4;35;1mSQL (27.7ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.7ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:37:41) [POST]
+  Parameters: {"comment"=>{"body"=>"giugkjbjkgk"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (27.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (26.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:37:41.729947', E'giugkjbjkgk', '2011-10-30 17:37:41.729947', 1) RETURNING "id"[0m
+  [4;36;1mSQL (30.0ms)[0m   [0;1mCOMMIT[0m
+Rendering comments/create
+Rendered comments/_comment (1.7ms)
+Completed in 215ms (View: 3, DB: 165) | 200 OK [http://localhost/posts/1/comments]
+  [4;35;1mSQL (28.2ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (28.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:37:52) [POST]
+  Parameters: {"comment"=>{"body"=>"gikuj"}, "commit"=>"Add Comment", "post_id"=>"1", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (27.0ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+  [4;36;1mSQL (28.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.7ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:37:52.714556', E'gikuj', '2011-10-30 17:37:52.714556', 1) RETURNING "id"[0m
+  [4;36;1mSQL (32.2ms)[0m   [0;1mCOMMIT[0m
+Rendering comments/create
+Rendered comments/_comment (3.0ms)
+Completed in 222ms (View: 5, DB: 172) | 200 OK [http://localhost/posts/1/comments]
+  [4;35;1mSQL (26.9ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (27.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#index (for 127.0.0.1 at 2011-10-30 18:37:55) [GET]
+  [4;35;1mPost Load (28.0ms)[0m   [0mSELECT * FROM "posts" [0m
+Rendering template within layouts/posts
+Rendering posts/index
+Rendered posts/_post (31.0ms)
+Completed in 65ms (View: 34, DB: 82) | 200 OK [http://localhost/posts]
+  [4;36;1mSQL (30.1ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 18:38:00) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 44ms (View: 10, DB: 57) | 200 OK [http://localhost/posts/new]
+  [4;36;1mSQL (26.9ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (27.2ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:39:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPost Load (27.6ms)[0m   [0;1mSELECT * FROM "posts" WHERE ("posts"."id" = 1) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (2.1ms)
+  [4;35;1mComment Load (27.8ms)[0m   [0mSELECT * FROM "comments" WHERE ("comments".post_id = 1) [0m
+Rendered comments/_comment (2.7ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Rendered comments/_comment (0.4ms)
+Completed in 140ms (View: 50, DB: 110) | 200 OK [http://localhost/posts/1]
+  [4;36;1mSQL (27.4ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (26.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#new (for 127.0.0.1 at 2011-10-30 18:40:01) [GET]
+Rendering template within layouts/posts
+Rendering posts/new
+Completed in 37ms (View: 4, DB: 54) | 200 OK [http://localhost/posts/new]
+  [4;36;1mSQL (26.7ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (28.7ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#create (for 127.0.0.1 at 2011-10-30 18:40:04) [POST]
+  Parameters: {"commit"=>"Create", "post"=>{"body"=>"hjmhjmhjgmjm", "title"=>"mmtuzmzjm"}, "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;36;1mSQL (27.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (32.3ms)[0m   [0mINSERT INTO "posts" ("created_at", "title", "body", "updated_at") VALUES('2011-10-30 17:40:04.985449', E'mmtuzmzjm', E'hjmhjmhjgmjm', '2011-10-30 17:40:04.985449') RETURNING "id"[0m
+  [4;36;1mSQL (36.5ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/posts/3
+Completed in 161ms (DB: 152) | 302 Found [http://localhost/posts]
+  [4;35;1mSQL (27.8ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (49.9ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PostsController#show (for 127.0.0.1 at 2011-10-30 18:40:05) [GET]
+  Parameters: {"id"=>"3"}
+  [4;35;1mPost Load (26.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+Rendering template within layouts/posts
+Rendering posts/show
+Rendered posts/_post (1.0ms)
+  [4;36;1mComment Load (28.2ms)[0m   [0;1mSELECT * FROM "comments" WHERE ("comments".post_id = 3) [0m
+Completed in 159ms (View: 40, DB: 133) | 200 OK [http://localhost/posts/3]
+  [4;35;1mSQL (27.3ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing CommentsController#create (for 127.0.0.1 at 2011-10-30 18:40:09) [POST]
+  Parameters: {"comment"=>{"body"=>"hjmgmggh"}, "commit"=>"Add Comment", "post_id"=>"3", "authenticity_token"=>"XpQNBVhME2RmbVPXwY9gsofAK6dW/QqiU6V1jctjjNw="}
+  [4;35;1mPost Load (26.8ms)[0m   [0mSELECT * FROM "posts" WHERE ("posts"."id" = 3) [0m
+  [4;36;1mSQL (26.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (27.5ms)[0m   [0mINSERT INTO "comments" ("created_at", "body", "updated_at", "post_id") VALUES('2011-10-30 17:40:09.764623', E'hjmgmggh', '2011-10-30 17:40:09.764623', 3) RETURNING "id"[0m
+  [4;36;1mSQL (30.8ms)[0m   [0;1mCOMMIT[0m
+Rendering comments/create
+Rendered comments/_comment (1.6ms)
+Completed in 211ms (View: 3, DB: 166) | 200 OK [http://localhost/posts/3/comments]

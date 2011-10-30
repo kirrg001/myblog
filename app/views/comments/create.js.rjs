@@ -1,0 +1,4 @@
+page.insert_html :bottom, :comments, :partial => @comment
+page[@comment].visual_effect :highlight
+#reset the form
+page[:new_comment].reset

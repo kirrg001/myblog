@@ -1,0 +1,6 @@
+development:
+        adapter: postgresql
+        host: db.intern.mi.hs-rm.de
+        database: kirrg001_ruby
+        username: kirrg001
+        password: secret
